@@ -40,27 +40,27 @@ if (process.env.NODE_ENV === 'development') {
    ROUTES
    ═══════════════════════════════════════════════════════════════════════════ */
 
-// ── Health check ─────────────────────────────────────────────────────────────
-app.get('/', (_req, res) => {
-  res.json({
-    success:   true,
-    message:   'Fintech Dashboard API',
-    version:   '1.0.0',
-    timestamp: new Date().toISOString(),
-    endpoints: {
-      transactions: {
-        list:    'GET    /api/transactions',
-        create:  'POST   /api/transactions',
-        get:     'GET    /api/transactions/:id',
-        update:  'PUT    /api/transactions/:id',
-        delete:  'DELETE /api/transactions/:id',
-        bulk:    'DELETE /api/transactions/bulk',
-        summary: 'GET    /api/transactions/summary',
-      },
-      summary: 'GET /api/summary',
-    },
-  });
-});
+// // ── Health check ─────────────────────────────────────────────────────────────
+// app.get('/', (_req, res) => {
+//   res.json({
+//     success:   true,
+//     message:   'Fintech Dashboard API',
+//     version:   '1.0.0',
+//     timestamp: new Date().toISOString(),
+//     endpoints: {
+//       transactions: {
+//         list:    'GET    /api/transactions',
+//         create:  'POST   /api/transactions',
+//         get:     'GET    /api/transactions/:id',
+//         update:  'PUT    /api/transactions/:id',
+//         delete:  'DELETE /api/transactions/:id',
+//         bulk:    'DELETE /api/transactions/bulk',
+//         summary: 'GET    /api/transactions/summary',
+//       },
+//       summary: 'GET /api/summary',
+//     },
+//   });
+// });
 
 // ── Transactions (CRUD + nested summary) ─────────────────────────────────────
 app.use('/api/transactions', require('./routes/transactionRoutes'));
