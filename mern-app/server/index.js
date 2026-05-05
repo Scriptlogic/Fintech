@@ -74,6 +74,12 @@ app.use('/api/analytics', require('./routes/analyticsRoutes'));
 // ── AI Spending Insights ──────────────────────────────────────────────────────
 app.use('/api/insights', require('./routes/insightsRoutes'));
 
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    message: "Backend is running"
+  });
+});
 /* ─── 404 + Error handling (must be last) ───────────────────────────────── */
 app.use(notFound);
 app.use(errorHandler);
@@ -100,10 +106,5 @@ app.listen(PORT, () => {
   console.log('└─────────────────────────────────────────────────┘');
   console.log('');
 
-app.get("/health", (req, res) => {
-  res.status(200).json({
-    status: "OK",
-    message: "Backend is running"
-  });
-});
+
 });
