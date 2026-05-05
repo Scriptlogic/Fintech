@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
+  if (!process.env.MONGO_URI) {
+    console.error('❌  MONGO_URI environment variable is not set.');
+    process.exit(1);
+  }
+
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI, {
       // Mongoose 7+ no longer needs these flags, but kept for clarity

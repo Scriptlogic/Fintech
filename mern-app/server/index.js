@@ -99,4 +99,11 @@ app.listen(PORT, () => {
   console.log(`│  GET    ${`${base}/api/insights`.padEnd(40)}│`);
   console.log('└─────────────────────────────────────────────────┘');
   console.log('');
+
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    message: "Backend is running"
+  });
+});
 });
